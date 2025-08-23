@@ -1,12 +1,13 @@
 {
-  "name": "photo-server",
+  "name": "photo-app",
   "version": "1.0.0",
-  "description": "Server to serve fake image and log IP/GPS",
+  "type": "module",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.2"
   }
 }
