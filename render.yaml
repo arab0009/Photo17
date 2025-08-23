@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: photo17
+    env: python
+    buildCommand: ""
+    startCommand: "python app.py"
+    plan: free
